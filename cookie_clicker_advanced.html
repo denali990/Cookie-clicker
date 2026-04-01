@@ -1,68 +1,74 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Clicker Advanced</title>
     <style>
         body {
-            background-color: #f7f5e6;
-            color: #5a5a5a;
-            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #9b59b6, #8e44ad);
+            color: white;
             text-align: center;
-            margin: 0;
+            font-family: 'Arial', sans-serif;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         h1 {
             font-size: 3em;
-            margin: 20px 0;
+            margin-top: 20px;
         }
-        #cookie {
+        .cookie {
             width: 200px;
             height: 200px;
-            background-image: url('big_cookie_emoji.png');
-            background-size: cover;
             cursor: pointer;
-            transition: transform 0.1s;
         }
-        #cookie:hover {
-            transform: scale(1.1);
-        }
-        #score {
-            font-size: 2em;
-            margin: 20px 0;
-        }
-        #upgrade {
-            padding: 10px 20px;
-            font-size: 1.5em;
-            background-color: #ffcc00;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        #upgrade:hover {
-            background-color: #ff9900;
+        .building {
+            margin: 10px;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
     <h1>Cookie Clicker Advanced</h1>
-    <div id="cookie"></div>
-    <div id="score">Cookies: 0</div>
-    <button id="upgrade">Upgrade</button>
-
+    <img class="cookie" src="cookie.png" alt="Giant Cookie" onclick="clickCookie()">
+    <div id="buildings">
+        <div class="building">🏠 Grandma</div>
+        <div class="building">🏭 Factory</div>
+        <div class="building">🏰 Castle</div>
+        <div class="building">🏯 Temple</div>
+        <div class="building">⛩️ Shrine</div>
+        <div class="building">🌌 Bank</div>
+        <div class="building">🏗️ Warehouse</div>
+        <div class="building">🚀 Space Shuttle</div>
+        <div class="building">👑 Kingdom</div>
+        <div class="building">🎢 Roller Coaster</div>
+        <div class="building">🎡 Ferris Wheel</div>
+        <div class="building">🎠 Carousel</div>
+    </div>
     <script>
-        let score = 0;
-        const cookie = document.getElementById('cookie');
-        const scoreDisplay = document.getElementById('score');
-        const upgradeButton = document.getElementById('upgrade');
-        
-        cookie.addEventListener('click', () => {
-            score++;
-            scoreDisplay.innerText = 'Cookies: ' + score;
-        });
-        
-        upgradeButton.addEventListener('click', () => {
-            score += 10;
-            scoreDisplay.innerText = 'Cookies: ' + score;
-        });
+        let cookies = 0;
+        let buildings = {
+            "Grandma": 1,
+            "Factory": 5,
+            "Castle": 10,
+            "Temple": 20,
+            "Shrine": 50,
+            "Bank": 100,
+            "Warehouse": 200,
+            "Space Shuttle": 500,
+            "Kingdom": 1000,
+            "Roller Coaster": 2000,
+            "Ferris Wheel": 5000,
+            "Carousel": 10000
+        };
+
+        function clickCookie() {
+            cookies += 1;
+            document.title = `Cookies: ${cookies}`;
+        }
     </script>
 </body>
 </html>
