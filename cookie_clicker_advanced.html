@@ -1,68 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cookie Clicker - Enhanced Version</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; }
-        .header { text-align: center; padding: 20px; background: #333; color: #fff; }
-        .button { padding: 15px 30px; font-size: 16px; cursor: pointer; }
-        .building { margin: 20px; text-align: center; }
-        .building img { width: 100px; height: auto; }
-        .upgrade { margin-top: 20px; }
-    </style>
+    <title>Cookie Clicker Advanced</title>
 </head>
 <body>
-    <div class="header">
-        <h1>Cookie Clicker - Enhanced Version</h1>
-        <h2 id="cookie-count">Cookies: 0</h2>
-        <button class="button" id="click-button">Click Me!</button>
-    </div>
-    <div class="content">
-        <div class="building" id="mine">
-            <img src="mine.png" alt="Mine">
-            <p>Mines produce cookies.</p>
-        </div>
-        <div class="building" id="shipment">
-            <img src="shipment.png" alt="Shipment">
-            <p>Shipments deliver cookies.</p>
-        </div>
-        <div class="building" id="laboratory">
-            <img src="laboratory.png" alt="Laboratory">
-            <p>Laboratories discover cookies.</p>
-        </div>
-        <div class="building" id="prism">
-            <img src="prism.png" alt="Prism">
-            <p>Prisms generate cookies.</p>
-        </div>
-        <div class="building" id="chancemaker">
-            <img src="chancemaker.png" alt="Chancemaker">
-            <p>Chancemakers create cookies.</p>
-        </div>
-        <div class="building" id="garden">
-            <img src="garden.png" alt="Garden">
-            <p>Gardens grow cookies.</p>
-        </div>
-        <div class="building" id="stock-market">
-            <img src="stock-market.png" alt="Stock Market">
-            <p>Stock market trades cookies.</p>
-        </div>
-        <div class="building" id="quantum-computer">
-            <img src="quantum-computer.png" alt="Quantum Computer">
-            <p>Quantum computers calculate cookies.</p>
-        </div>
-    </div>
+    <h1>Cookie Clicker Advanced</h1>
+    <button onclick="clickCookie()">Click me for cookies!</button>
+    <p id="cookieCount"> Cookies: 0</p>
+    <button onclick="unlockGrandmaApocalypse()">Unlock Grandma Apocalypse</button>
+    <p id="grandmaStatus"> Grandma Apocalypse not unlocked.</p>
     <script>
-        let cookieCount = 0;
-        document.getElementById('click-button').addEventListener('click', function() {
-            cookieCount++;
-            document.getElementById('cookie-count').innerText = `Cookies: ${cookieCount}`;
-            // Add particle effects for each click
-        });
-        // Add building production logic, upgrades system, and achievements tracking
+        let cookies = 0;
+        let grandmaApocalypseUnlocked = false;
+
+        function clickCookie() {
+            cookies++;
+            document.getElementById('cookieCount').innerText = 'Cookies: ' + cookies;
+        }
+
+        function unlockGrandmaApocalypse() {
+            grandmaApocalypseUnlocked = true;
+            document.getElementById('grandmaStatus').innerText = 'Grandma Apocalypse unlocked!';
+        }
+
+        function enterSecretCode(code) {
+            if (code === 'INFINITE_COOKIES') {
+                cookies = Infinity;
+                document.getElementById('cookieCount').innerText = 'Cookies: Infinite!';
+            }
+        }
     </script>
 </body>
 </html>
