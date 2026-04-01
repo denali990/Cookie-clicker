@@ -1,33 +1,68 @@
 <html>
 <head>
     <title>Cookie Clicker Advanced</title>
+    <style>
+        body {
+            background-color: #f7f5e6;
+            color: #5a5a5a;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin: 20px 0;
+        }
+        #cookie {
+            width: 200px;
+            height: 200px;
+            background-image: url('big_cookie_emoji.png');
+            background-size: cover;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        #cookie:hover {
+            transform: scale(1.1);
+        }
+        #score {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        #upgrade {
+            padding: 10px 20px;
+            font-size: 1.5em;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #upgrade:hover {
+            background-color: #ff9900;
+        }
+    </style>
 </head>
 <body>
     <h1>Cookie Clicker Advanced</h1>
-    <button onclick="clickCookie()">Click me for cookies!</button>
-    <p id="cookieCount"> Cookies: 0</p>
-    <button onclick="unlockGrandmaApocalypse()">Unlock Grandma Apocalypse</button>
-    <p id="grandmaStatus"> Grandma Apocalypse not unlocked.</p>
+    <div id="cookie"></div>
+    <div id="score">Cookies: 0</div>
+    <button id="upgrade">Upgrade</button>
+
     <script>
-        let cookies = 0;
-        let grandmaApocalypseUnlocked = false;
-
-        function clickCookie() {
-            cookies++;
-            document.getElementById('cookieCount').innerText = 'Cookies: ' + cookies;
-        }
-
-        function unlockGrandmaApocalypse() {
-            grandmaApocalypseUnlocked = true;
-            document.getElementById('grandmaStatus').innerText = 'Grandma Apocalypse unlocked!';
-        }
-
-        function enterSecretCode(code) {
-            if (code === 'INFINITE_COOKIES') {
-                cookies = Infinity;
-                document.getElementById('cookieCount').innerText = 'Cookies: Infinite!';
-            }
-        }
+        let score = 0;
+        const cookie = document.getElementById('cookie');
+        const scoreDisplay = document.getElementById('score');
+        const upgradeButton = document.getElementById('upgrade');
+        
+        cookie.addEventListener('click', () => {
+            score++;
+            scoreDisplay.innerText = 'Cookies: ' + score;
+        });
+        
+        upgradeButton.addEventListener('click', () => {
+            score += 10;
+            scoreDisplay.innerText = 'Cookies: ' + score;
+        });
     </script>
 </body>
 </html>
